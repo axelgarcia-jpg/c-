@@ -1,1 +1,2 @@
 # c-
+# Utilize dotnet run
