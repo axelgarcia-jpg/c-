@@ -42,8 +42,8 @@ namespace ColorLab
                 new ColorPaletteItem("Morado",        new Color(140, 80,  180, 255))
             };
 
-            int colorIndexA = 0; // Selección Clic Izquierdo (A)
-            int colorIndexB = 1; // Selección Clic Derecho (B)
+            int colorIndexA = 0; // Selección Clic Izquierdo
+            int colorIndexB = 1; // Selección Clic Derecho 
             byte alphaValue = 255;
             bool isDraggingSlider = false;
 
@@ -53,7 +53,7 @@ namespace ColorLab
             {
                 Vector2 mousePos = Raylib.GetMousePosition();
 
-                // Interacción con la paleta de colores[cite: 1]
+                // paleta de colores
                 for (int i = 0; i < palette.Length; i++)
                 {
                     Rectangle cardRect = new Rectangle(30, 120 + i * 65, 300, 55);
@@ -64,7 +64,7 @@ namespace ColorLab
                     }
                 }
 
-                // Control del Slider de Transparencia
+                // Control del Slider 
                 if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, sliderBounds))
                 {
                     isDraggingSlider = true;
@@ -87,7 +87,7 @@ namespace ColorLab
                 Raylib.DrawText("COLOR LAB", 30, 20, 28, new Color(30, 30, 30, 255));
                 Raylib.DrawText("Selecciona un color y haz clic en el rectangulo para pintarlo.", 30, 55, 16, new Color(90, 90, 90, 255));
 
-                // Panel Izquierdo: Paleta de 5 colores[cite: 1]
+                // Panel Izquierdo
                 Raylib.DrawText("Paleta de cinco colores", 30, 92, 18, new Color(30, 30, 30, 255));
                 for (int i = 0; i < palette.Length; i++)
                 {
@@ -116,7 +116,7 @@ namespace ColorLab
                 Raylib.DrawText("Izquierdo: seleccionar color / A", 30, 460, 13, new Color(100, 100, 100, 255));
                 Raylib.DrawText("Derecho: elegir color B", 30, 480, 13, new Color(100, 100, 100, 255));
 
-                // Panel Derecho: Dos fondos para verificar la Transparencia (Alpha)
+                // Panel Derecho:
                 Raylib.DrawText("Rectangulo para pintar", 380, 92, 20, new Color(30, 30, 30, 255));
                 int canvasX = 380, canvasY = 120, canvasW = 520, canvasH = 220;
 
@@ -137,7 +137,7 @@ namespace ColorLab
                     }
                 }
 
-                // Renderizado del color activo con Alpha
+                // Renderizado del color activo 
                 Color activeColorA = palette[colorIndexA].Color;
                 Color displayColor = new Color(activeColorA.R, activeColorA.G, activeColorA.B, alphaValue);
                 Raylib.DrawRectangle(canvasX, canvasY, canvasW, canvasH, displayColor);
